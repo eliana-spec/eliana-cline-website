@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fractional CMO | Eliana Cline</title>
+<meta name="description" content="Fractional CMO for scaling B2B and service businesses. One plan for your marketing, and one person accountable for whether it works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0E1B4D;
+    --indigo: #0B0D63;
+    --cream: #F8F7F5;
+    --coral: #E8896A;
+    --coral-soft: #F0A98D;
+    --coral-line: rgba(232, 137, 106, .35);
+    --ink: #1A1A2E;
+    --slate: #5A5A7A;
+    --lavender: #9795BA;
+    --white: #FFFFFF;
+
+    --serif: "Libre Baskerville", Georgia, serif;
+    --sans: "Almarai", "Helvetica Neue", Arial, sans-serif;
+    --wrap: 1120px;
+    --radius: 14px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--slate);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+  .narrow { max-width: 760px; }
+
+  section { padding: 96px 0; }
+  .dark { background: var(--navy); color: var(--lavender); }
+  .deep { background: var(--indigo); color: var(--lavender); }
+  .light { background: var(--cream); }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; color: var(--ink); margin: 0; }
+  .dark h1, .dark h2, .dark h3, .deep h1, .deep h2, .deep h3 { color: var(--white); }
+  h1 em, h2 em, h3 em { font-style: italic; color: var(--coral); }
+  h1 { font-size: clamp(2.3rem, 5.4vw, 4rem); line-height: 1.12; letter-spacing: -.01em; }
+  h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.2; }
+  h3 { font-size: 1.3rem; line-height: 1.3; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: .78rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin-bottom: 20px;
+  }
+  .dark .eyebrow::after, .deep .eyebrow::after {
+    content: ""; display: block; width: 44px; height: 2px;
+    background: var(--coral); margin-top: 14px;
+  }
+  .center { text-align: center; }
+  .center .eyebrow::after { margin-left: auto; margin-right: auto; }
+  .lead { font-size: 1.15rem; max-width: 680px; }
+  .center .lead { margin-left: auto; margin-right: auto; }
+  p { margin: 0 0 1em; }
+  strong { color: var(--ink); }
+  .dark strong, .deep strong { color: var(--white); }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    background: var(--coral);
+    color: var(--navy);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: .95rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 34px;
+    border-radius: 6px;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .btn:hover { background: var(--coral-soft); transform: translateY(-1px); }
+  .text-link {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: .95rem;
+    text-decoration: underline;
+    text-decoration-color: var(--coral);
+    text-underline-offset: 4px;
+  }
+  .cta-block { margin-top: 40px; }
+  .cta-block .text-link { display: block; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; padding: 130px 0 110px; }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; border-radius: 50%;
+    border: 1px solid rgba(151, 149, 186, .18);
+    pointer-events: none;
+  }
+  .hero::before { width: 640px; height: 640px; right: -220px; top: -240px; background: rgba(255,255,255,.025); }
+  .hero::after { width: 420px; height: 420px; left: -200px; bottom: -260px; }
+  .hero .wrap { position: relative; }
+  .hero h1 { max-width: 900px; margin: 0 auto 28px; }
+  .hero .lead { color: var(--lavender); font-size: 1.2rem; }
+
+  /* Logo bar */
+  .logos { padding: 48px 0; border-bottom: 1px solid var(--coral-line); }
+  .logos .eyebrow { color: var(--slate); margin-bottom: 26px; }
+  .logo-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 28px 32px; align-items: center; justify-items: center;
+  }
+  .logo-row span {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: #8C8C9A;
+    filter: grayscale(1);
+    letter-spacing: .02em;
+    text-align: center;
+  }
+
+  /* Problem list */
+  .pain-list { list-style: none; padding: 0; margin: 40px 0; }
+  .pain-list li {
+    padding: 18px 0 18px 44px;
+    border-top: 1px solid rgba(151, 149, 186, .25);
+    position: relative;
+    color: var(--white);
+    font-size: 1.08rem;
+  }
+  .pain-list li:last-child { border-bottom: 1px solid rgba(151, 149, 186, .25); }
+  .pain-list li::before {
+    content: "✕"; position: absolute; left: 4px; top: 18px;
+    color: var(--coral); font-weight: 700;
+  }
+  .pullout {
+    font-family: var(--serif); font-size: 1.45rem; line-height: 1.45;
+    color: var(--white); margin: 0;
+  }
+  .pullout em { color: var(--coral); }
+
+  /* Fit */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .card {
+    background: var(--white);
+    border: 1px solid var(--coral-line);
+    border-radius: var(--radius);
+    padding: 34px;
+  }
+  .card-label {
+    font-weight: 700; font-size: .75rem; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--coral); margin-bottom: 12px;
+  }
+  .check-list { list-style: none; padding: 0; margin: 0; }
+  .check-list li { padding: 10px 0 10px 32px; position: relative; color: var(--ink); }
+  .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--coral); font-weight: 700; }
+  .not-for {
+    margin-top: 20px; padding-top: 20px; border-top: 1px dashed var(--coral-line);
+    font-size: .98rem;
+  }
+
+  /* 2x2 grid */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .grid-2 .card h3 { margin-bottom: 12px; }
+  .grid-2 .card p:last-child { margin-bottom: 0; }
+
+  /* Hired for → Ended up */
+  .journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+  .journey .card { background: rgba(255,255,255,.04); border-color: rgba(232,137,106,.4); padding: 30px; }
+  .journey .client { font-family: var(--serif); font-size: 1.25rem; color: var(--white); margin-bottom: 22px; }
+  .journey .row-label {
+    font-weight: 700; font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--lavender);
+  }
+  .journey .row-val { color: var(--white); margin: 4px 0 0; }
+  .journey .arrow { color: var(--coral); font-size: 1.3rem; margin: 14px 0; line-height: 1; }
+  .journey .ended .row-label { color: var(--coral); }
+
+  /* Testimonials */
+  .quote {
+    border-left: 3px solid var(--coral);
+    padding: 6px 0 6px 28px;
+    margin: 0;
+  }
+  .quote blockquote {
+    margin: 0 0 18px;
+    font-family: var(--serif); font-style: italic;
+    font-size: 1.12rem; line-height: 1.6; color: var(--ink);
+  }
+  .dark .quote blockquote { color: var(--white); }
+  .quote figcaption { display: flex; align-items: center; gap: 14px; font-size: .95rem; }
+  .quote figcaption b { color: var(--ink); display: block; }
+  .dark .quote figcaption b { color: var(--white); }
+  .avatar {
+    width: 52px; height: 52px; border-radius: 50%; flex: none;
+    object-fit: cover; background: var(--navy); color: var(--coral);
+    display: grid; place-items: center; font-weight: 700; font-size: .9rem;
+    border: 2px solid var(--coral-line);
+  }
+  .feature-quote { max-width: 820px; margin: 72px auto 0; }
+  .feature-quote blockquote { font-size: 1.3rem; }
+
+  /* Case studies */
+  .cases { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .cases .card { padding: 40px; display: flex; flex-direction: column; }
+  .cases h3 { font-size: 1.55rem; margin-bottom: 16px; }
+  .stats { display: flex; gap: 32px; flex-wrap: wrap; margin-top: auto; padding-top: 24px; border-top: 1px solid var(--coral-line); }
+  .stat-num { font-family: var(--serif); font-size: 2.2rem; color: var(--coral); line-height: 1.1; }
+  .stat-label { font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--slate); }
+  .stat-text { font-family: var(--serif); font-size: 1.15rem; color: var(--ink); line-height: 1.35; }
+
+  .testimonials { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 64px; margin-top: 56px; }
+
+  /* Method steps */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 56px; position: relative; }
+  .step { padding: 0 24px 0 0; position: relative; }
+  .step-num {
+    font-family: var(--serif); font-size: 2.6rem; color: var(--coral); line-height: 1;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+  }
+  .step-num::after {
+    content: ""; flex: 1; height: 1px; background: var(--coral-line);
+  }
+  .step:last-child .step-num::after { display: none; }
+  .step h3 { margin-bottom: 10px; }
+  .step p { font-size: .98rem; margin: 0; }
+  .step-arrow { color: var(--coral); }
+  .kicker { margin-top: 56px; font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--ink); }
+
+  /* Offers */
+  .offer-head { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; margin-bottom: 48px; }
+  .offer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .dark .card { background: rgba(255,255,255,.04); border-color: rgba(232,137,106,.4); }
+  .dark .check-list li { color: var(--white); }
+  .dark .card-label { color: var(--coral); }
+  .price-panel {
+    margin-top: 40px; padding: 32px; border-radius: var(--radius);
+    border: 1px solid var(--coral); display: flex; justify-content: space-between;
+    align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .light .price-panel { background: var(--white); }
+  .price { font-family: var(--serif); font-size: 2.4rem; line-height: 1.1; color: var(--ink); }
+  .dark .price { color: var(--white); }
+  .price small { font-family: var(--sans); font-size: 1rem; color: var(--slate); }
+  .dark .price small { color: var(--lavender); }
+  .price-meta { font-size: .95rem; }
+  .price-meta div { padding: 2px 0; }
+  .duration { font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; color: var(--coral); margin-bottom: 6px; }
+  .after-note { margin-top: 32px; font-size: 1.08rem; max-width: 720px; }
+
+  .currency-toggle {
+    display: inline-flex; border: 1px solid var(--coral-line); border-radius: 999px;
+    padding: 4px; margin-top: 28px; font-size: .8rem; font-weight: 700; letter-spacing: .08em;
+  }
+  .currency-toggle button {
+    border: 0; background: transparent; color: inherit; cursor: pointer;
+    padding: 6px 14px; border-radius: 999px; font: inherit; letter-spacing: inherit;
+  }
+  .currency-toggle button[aria-pressed="true"] { background: var(--coral); color: var(--navy); }
+
+  /* FAQ */
+  .faq { margin-top: 48px; border-top: 1px solid var(--coral-line); }
+  .faq details { border-bottom: 1px solid var(--coral-line); }
+  .faq summary {
+    list-style: none; cursor: pointer; padding: 26px 48px 26px 0; position: relative;
+    font-family: var(--serif); font-size: 1.15rem; color: var(--ink);
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+"; position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+    color: var(--coral); font-family: var(--sans); font-size: 1.6rem; line-height: 1;
+    transition: transform .2s ease;
+  }
+  .faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  .faq details p { padding: 0 48px 26px 0; margin: 0; }
+
+  footer { background: var(--navy); color: var(--lavender); padding: 40px 0; font-size: .9rem; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer a { color: var(--lavender); text-decoration-color: var(--coral); }
+
+  @media (max-width: 900px) {
+    section { padding: 72px 0; }
+    .two-col, .offer-head, .offer-grid, .cases, .testimonials, .grid-2 { grid-template-columns: 1fr; gap: 32px; }
+    .journey { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+    .step-num::after { display: none; }
+    .logo-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding: 0 16px; }
+    .hero { padding: 96px 0 80px; }
+    .steps { grid-template-columns: 1fr; }
+    .card, .cases .card { padding: 26px; }
+    .btn { display: block; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero deep center">
+  <div class="wrap">
+    <span class="eyebrow">Fractional CMO for scaling B2B and service businesses</span>
+    <h1>Everyone’s doing marketing. Nobody’s in <em>charge</em> of it.</h1>
+    <p class="lead">Your ads person, your SEO agency and the freelancer on LinkedIn are all working hard. I give them one plan, and give you someone accountable for whether it works.</p>
+    <div class="cta-block">
+      <a class="btn" href="/contact">Start with the Growth Audit</a>
+      <a class="text-link" href="[fit-call-link]">Not sure yet? Book a 20-minute fit call</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUSTED BY -->
+<!-- DESIGN NOTE: swap the wordmarks below for greyscale logo files. Confirm logo permission for each. -->
+<div class="logos light center">
+  <div class="wrap">
+    <span class="eyebrow">Trusted by</span>
+    <div class="logo-row">
+      <span>Houghton House</span>
+      <span>BSharp</span>
+      <span>Smudge</span>
+      <span>Hubo Studio</span>
+      <span>ODEO Academy</span>
+      <span>Cedar Capital</span>
+      <span>The Angel Network</span>
+      <span>IPL Packaging</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="dark">
+  <div class="wrap narrow">
+    <span class="eyebrow">Sound familiar?</span>
+    <h2>Busy marketing. No <em>direction.</em></h2>
+    <ul class="pain-list">
+      <li>The founder still signs off on every post, ad and landing page.</li>
+      <li>Three vendors send three reports. Not one of them mentions revenue.</li>
+      <li>Sales says the leads are wrong. Marketing says sales doesn’t follow up.</li>
+      <li>The business has moved upmarket. The website hasn’t.</li>
+      <li>You’re spending real money and can’t say what’s working.</li>
+    </ul>
+    <p class="pullout">None of this means your people are bad. It means nobody’s steering. <em>That’s the job.</em></p>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="light">
+  <div class="wrap two-col">
+    <div>
+      <span class="eyebrow">The real gap</span>
+      <h2>You need a marketing <em>leader.</em> Not necessarily a full-time one.</h2>
+      <p class="lead" style="margin-top:24px">A full-time CMO costs more than most growing businesses spend on marketing, before they’ve made a single decision. Most growing businesses don’t need one five days a week. They need the thinking, the decisions and someone accountable.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">This is for you if</div>
+      <ul class="check-list">
+        <li>Marketing matters to your growth, and it’s outgrown the founder</li>
+        <li>You have people doing the work, but nobody leading it</li>
+        <li>You’re at a turning point: moving upmarket, entering a new market or launching something big</li>
+      </ul>
+      <p class="not-for">It’s not for you if you need someone to run your Instagram, tick off tasks or nod along.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATION -->
+<section class="light" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">How I think</span>
+    <h2>Most marketing leaders think like marketers. I think like an <em>owner.</em></h2>
+    <p class="lead" style="margin-top:24px">Before I ask what you should post, I ask how the business makes money, where the growth is and what’s actually in the way. So I don’t care how busy your marketing looks. I care what it does for the business.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h3>I look at the whole business, not just the marketing.</h3>
+        <p>Offer, pricing, sales process, positioning. Often the fix isn’t another campaign. It’s hiding in one of those.</p>
+      </div>
+      <div class="card">
+        <h3>I trust your customers over anyone’s opinion. Including mine.</h3>
+        <p>For BSharp, that meant 130+ sales calls, interviews, surveys and reviews before I made a single recommendation.</p>
+      </div>
+      <div class="card">
+        <h3>I’m on your side of the table.</h3>
+        <p>I don’t sell ads, SEO or a team. So I can tell you when an agency is brilliant, when it’s coasting, and when the problem isn’t marketing at all.</p>
+      </div>
+      <div class="card">
+        <h3>I’m picky about who touches your business.</h3>
+        <p>My specialist circle is small on purpose: two top-tier SEO and paid media agencies, a UX designer and analytics experts. If I wouldn’t hire them myself, they won’t touch yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORIGIN / HIRED FOR → ENDED UP -->
+<section class="dark">
+  <div class="wrap">
+    <span class="eyebrow">How this started</span>
+    <h2>Clients hire me for a website. They keep me for the <em>thinking.</em></h2>
+    <p class="lead" style="margin-top:24px">Most of my CMO work started the same way. We’d finish the strategy and the website, then the questions would start. Who should run our ads? Is our SEO agency any good? What do we do next?</p>
+    <p class="lead"><strong>So I started answering.</strong></p>
+
+    <div class="journey">
+      <div class="card">
+        <div class="client">Houghton House</div>
+        <div class="row-label">Hired for</div>
+        <p class="row-val">Website copy</p>
+        <div class="arrow">↓</div>
+        <div class="ended"><div class="row-label">Ended up</div>
+        <p class="row-val">Connecting SEO to conversion</p></div>
+      </div>
+      <div class="card">
+        <div class="client">BSharp</div>
+        <div class="row-label">Hired for</div>
+        <p class="row-val">Messaging and website</p>
+        <div class="arrow">↓</div>
+        <div class="ended"><div class="row-label">Ended up</div>
+        <p class="row-val">Positioning built on 130+ sales calls</p></div>
+      </div>
+      <div class="card">
+        <div class="client">ODEO Academy</div>
+        <div class="row-label">Hired for</div>
+        <p class="row-val">Sales page copy</p>
+        <div class="arrow">↓</div>
+        <div class="ended"><div class="row-label">Ended up</div>
+        <p class="row-val">Defining the target market and bringing in growth partners</p></div>
+      </div>
+    </div>
+
+    <figure class="quote feature-quote">
+      <blockquote>“She’s been a partner more than someone I hired. She connected me with people to help me grow the course, without even being asked. She really cares about the success of the whole campaign, not just the one deliverable she’s part of.”</blockquote>
+      <figcaption>
+        <img class="avatar" src="https://images.squarespace-cdn.com/content/v1/63ff1a7b25d88459303491d2/500e69c8-055d-4639-8bbe-85cb0d46e17f/danny-gavin-e1593098548727.jpg?format=300w" alt="Danny Gavin">
+        <span><b>Danny Gavin</b>Founder, ODEO Academy</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Results</span>
+    <h2>What it looks like in <em>practice.</em></h2>
+    <div class="cases">
+      <article class="card">
+        <div class="card-label">Houghton House</div>
+        <h3>Top of Google. Almost no leads.</h3>
+        <p>Houghton House had the traffic. It didn’t have the enquiries. I rebuilt the site’s messaging around what prospective clients and their families actually needed to hear, and worked with the SEO team to turn search traffic into calls.</p>
+        <div class="stats">
+          <div><div class="stat-num">500+</div><div class="stat-label">Qualified leads in six months</div></div>
+          <div><div class="stat-text">From chasing enquiries<br>to a waiting list</div></div>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-label">BSharp</div>
+        <h3>A complex product, made obvious.</h3>
+        <p>BSharp makes SARS compliance software. Not the easiest thing to get excited about. I worked through 12 surveys, 42 reviews, 4 interviews and 130+ recorded sales calls across 70+ firms. That became the positioning, the messaging and a website that makes the case clearly.</p>
+        <div class="stats">
+          <div><div class="stat-num">130+</div><div class="stat-label">Sales calls analysed</div></div>
+          <div><div class="stat-num">70+</div><div class="stat-label">Firms</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="light" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">In their words</span>
+    <h2>What it’s like to have me in your <em>corner.</em></h2>
+    <!-- DESIGN NOTE: BSharp quote lightly edited from voice note. Get name and sign-off. -->
+    <div class="testimonials">
+      <figure class="quote">
+        <blockquote>“She’s SO much more than just a copywriter. She is a Business Consultant, Guide, Researcher, Pricing Strategist, Advisor… Eliana’s work literally pays for itself, and keeps paying.”</blockquote>
+        <figcaption>
+          <img class="avatar" src="https://images.squarespace-cdn.com/content/v1/63ff1a7b25d88459303491d2/195872d0-66a8-478e-b1e9-e4ba151765cf/shaian+image.jfif" alt="Shaina Keren">
+          <span><b>Shaina Keren</b>Founder, The Career Channel</span>
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“Working with Eliana has completely transformed the future of my business. Her brand strategy process gave me the clarity I was searching for. Now I am confident in our positioning as THE experts in architecture for schools, and we’re attracting amazing potential clients.”</blockquote>
+        <figcaption>
+          <span class="avatar" aria-hidden="true">AM</span>
+          <span><b>Asher Marcus</b>Founder, Hubo Studio</span>
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“Now that we’ve clarified our messaging, if we have to choose between three or four major developments, it helps us see which one actually ties back to why we exist and why our customers came on board.”</blockquote>
+        <figcaption>
+          <span class="avatar" aria-hidden="true">BS</span>
+          <span><b>[Name]</b>Co-founder, BSharp</span>
+        </figcaption>
+      </figure>
+      <figure class="quote">
+        <blockquote>“The research she did before the copy starts, especially interviewing our existing clients, gave us valuable feedback on who we are and how we are seen in the industry. Her work challenged our creative process.”</blockquote>
+        <figcaption>
+          <img class="avatar" src="https://images.squarespace-cdn.com/content/v1/63ff1a7b25d88459303491d2/fdb43805-e7d8-48eb-9042-ee205a5d86e3/gary.jfif" alt="Gary Leicher">
+          <span><b>Gary Leicher</b>CEO, Smudge Technologies</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="light" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow">The method</span>
+    <h2>Business first. Brand second. Marketing <em>third.</em></h2>
+    <p class="lead" style="margin-top:24px">Most marketing goes wrong because it starts at the end.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Business</h3>
+        <p>Where are you trying to grow, and what’s actually in the way?</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>Brand</h3>
+        <p>Why should the right clients pick you, and does everything you put out make that obvious?</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Marketing</h3>
+        <p>Which channels and campaigns will get you there, and which ones are quietly burning money?</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h3>Execution</h3>
+        <p>Your team, your vendors or my specialists, all working from one plan.</p>
+      </div>
+    </div>
+    <p class="kicker">Skip a step and the next one’s a guess.</p>
+  </div>
+</section>
+
+<!-- STEP 1: GROWTH AUDIT -->
+<section class="dark" id="growth-audit">
+  <div class="wrap">
+    <div class="offer-head">
+      <div>
+        <span class="eyebrow">Step 1 · The Growth Audit</span>
+        <h2>Before I recommend anything, I look at <em>everything.</em></h2>
+      </div>
+      <p class="lead" style="margin:0">No hunches. No “best practice.” Just what’s actually happening in your business.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="card">
+        <div class="card-label">What we look at</div>
+        <ul class="check-list">
+          <li>Every channel: what’s working, what’s draining budget, what’s missing</li>
+          <li>Your website and sales journey: where interested people drop off</li>
+          <li>Your positioning against competitors</li>
+          <li>Your customers, in their own words</li>
+          <li>Your vendors and team: who’s delivering, and where the gaps are</li>
+          <li>The numbers that connect marketing to revenue</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-label">What you get</div>
+        <ul class="check-list">
+          <li><strong>A diagnosis:</strong> the real thing holding growth back, in plain English</li>
+          <li><strong>A keep / cut / add list</strong> for every channel, vendor and campaign</li>
+          <li><strong>A 90-day roadmap:</strong> priorities, owners and what we’ll measure</li>
+          <li><strong>A leadership debrief:</strong> a working session with you and your team</li>
+        </ul>
+      </div>
+    </div>
+    <div class="price-panel">
+      <div>
+        <div class="duration">3 weeks</div>
+        <div class="price" data-zar="R27,500" data-usd="$1,750">R27,500</div>
+      </div>
+      <div class="price-meta">
+        <div>Fixed fee, no retainer required</div>
+      </div>
+      <a class="btn" href="/contact">Start with the Growth Audit</a>
+    </div>
+    <p class="after-note">Take it to your own team, or have me lead it. Either way, you’ll know exactly what to do on Monday.</p>
+    <div class="currency-toggle" role="group" aria-label="Currency">
+      <button type="button" data-cur="zar" aria-pressed="true">ZAR</button>
+      <button type="button" data-cur="usd" aria-pressed="false">USD</button>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2: FRACTIONAL CMO -->
+<section class="light">
+  <div class="wrap">
+    <div class="offer-head">
+      <div>
+        <span class="eyebrow">Step 2 · Fractional CMO</span>
+        <h2>Then I make it <em>happen.</em></h2>
+      </div>
+      <p class="lead" style="margin:0">A roadmap is only worth something if someone owns it. Each month you get:</p>
+    </div>
+    <div class="card">
+      <ul class="check-list">
+        <li>A weekly leadership session to set priorities and make decisions</li>
+        <li>Strategy, positioning and messaging direction</li>
+        <li>Vendor and team leadership: briefs, reviews and honest feedback</li>
+        <li>Campaign and website oversight</li>
+        <li>A monthly scorecard tied to the numbers that matter</li>
+      </ul>
+    </div>
+    <!-- NOTE: confirm 4-month minimum -->
+    <div class="price-panel">
+      <div>
+        <div class="price" data-zar="R29,500" data-usd="$1,950">R29,500</div>
+        <small>a month</small>
+      </div>
+      <div class="price-meta">
+        <div>4-month minimum, then month to month</div>
+        <div>Ad spend and specialists billed separately</div>
+      </div>
+      <a class="btn" href="/contact">Start with the Growth Audit</a>
+    </div>
+    <p class="after-note">Keep the people you have. Where there’s a gap, I bring in someone from my circle and manage them for you. You always see exactly what everything costs.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="hero deep center">
+  <div class="wrap">
+    <span class="eyebrow">Ready when you are</span>
+    <h2 style="max-width:820px;margin:0 auto 24px">You don’t need more marketing. You need someone in <em>charge</em> of it.</h2>
+    <p class="lead">Someone who knows where you’re going, who’s doing what and whether it’s working. And who’ll tell you straight when it isn’t.</p>
+    <div class="cta-block">
+      <a class="btn" href="/contact">Start with the Growth Audit</a>
+      <a class="text-link" href="[fit-call-link]">Not sure yet? Book a 20-minute fit call</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="light">
+  <div class="wrap narrow">
+    <span class="eyebrow">Questions</span>
+    <h2>Before you <em>ask.</em></h2>
+    <div class="faq">
+      <details>
+        <summary>Do I have to commit to a retainer?</summary>
+        <p>No. The audit stands on its own. Take the roadmap and run with it, or have me lead it. Your call.</p>
+      </details>
+      <details>
+        <summary>How is this different from an agency?</summary>
+        <p>An agency sells you services. I decide which services you actually need, then hold whoever delivers them to account. I answer to you, not to a media budget.</p>
+      </details>
+      <details>
+        <summary>Will you work with our existing team and vendors?</summary>
+        <p>Yes. If they’re good, I’ll make them better with clearer briefs and faster decisions. If they’re not, I’ll tell you, and help you replace them.</p>
+      </details>
+      <details>
+        <summary>Do you do the work yourself?</summary>
+        <p>I personally lead strategy, positioning, messaging and creative direction. Execution goes to your team, your vendors or my specialists.</p>
+      </details>
+      <details>
+        <summary>Is copywriting included?</summary>
+        <p>Messaging direction and copy review, yes. Big projects like a full website rewrite are scoped separately so they get proper attention.</p>
+      </details>
+      <details>
+        <summary>Who do you work with?</summary>
+        <p>Scaling B2B and service businesses with a strong offer, real expertise and marketing that hasn’t caught up yet.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Eliana Cline · Johannesburg, South Africa · Serving clients worldwide</span>
+    <a href="https://www.elianacline.com">elianacline.com</a>
+  </div>
+</footer>
+
+<script>
+  // Show one currency per visitor: ZAR for South African visitors, USD for everyone else.
+  (function () {
+    var prices = document.querySelectorAll('[data-zar]');
+    var buttons = document.querySelectorAll('.currency-toggle button');
+
+    function setCurrency(cur) {
+      prices.forEach(function (el) { el.textContent = el.getAttribute('data-' + cur); });
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.cur === cur)); });
+    }
+
+    var cur = 'usd';
+    try {
+      var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      var lang = navigator.language || '';
+      if (tz === 'Africa/Johannesburg' || /-ZA$/i.test(lang)) cur = 'zar';
+    } catch (e) {}
+    setCurrency(cur);
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { setCurrency(b.dataset.cur); });
+    });
+  })();
+</script>
+</body>
+</html>
